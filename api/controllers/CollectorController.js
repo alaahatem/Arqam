@@ -11,6 +11,8 @@ module.exports = {
    *  of the assignment in the matchescollector table
    */
   AssignMatches: async (req, res) => {
+    //we first get the assignments of the collector to check if
+    //he/she are assigned 2 matches.
     if (req.params.team) {
       sails.models.matchescollector
         .find()
@@ -24,9 +26,9 @@ module.exports = {
               message: err.message,
             });
           }
+          //if the collector has matches less than 2 then
+          //we can assign them a match
           if (assignments.length < 2) {
-            console.log(assignments.length);
-
             sails.models.matchescollector
               .create({
                 collector_id: req.body.collector_id,

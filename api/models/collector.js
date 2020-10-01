@@ -15,9 +15,5 @@ module.exports = {
       type: "string",
       required: true,
     },
-    busy: {
-      type: "boolean",
-      defaultsTo: false,
-    },
   },
 };
