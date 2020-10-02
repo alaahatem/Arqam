@@ -5,10 +5,6 @@ a [Sails v1](https://sailsjs.com) application
 ### Links
 
 - [Sails framework documentation](https://sailsjs.com/get-started)
-- [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-- [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-- [Community support options](https://sailsjs.com/support)
-- [Professional / enterprise options](https://sailsjs.com/enterprise)
 
 ### Installation & Configuration
 
@@ -19,6 +15,13 @@ git clone https://github.com/alaahatem/Arqam.git
 ```
 
 ## Using docker
+
+- Prerequisite :
+  Install Docker
+  Check if installed using :
+  ```bash
+  docker --version
+  ```
 
 Direct into the project
 
@@ -52,8 +55,7 @@ Start the project :
 npm start
 ```
 
-The postgres database is deployed and connected to heroku to avoid the hassle of configuring it and the connection url should be in env but
-is embedded to start testing the api immediately
+The postgres database is deployed on heroku (response speed not as locally) to avoid the hassle of configuring it and the connection url should be in env but is embedded to start testing the api immediately
 
 ## API USAGE
 
@@ -98,6 +100,15 @@ POST http://localhost:1337/player
 
 ```
 
+- Get players with of a specific team with team_id=1
+
+```bash
+GET http://localhost:1337/player?team_id=1
+
+
+
+```
+
 - Create a new Referee :
   All CRUD available
 
@@ -125,6 +136,9 @@ POST http://localhost:1337/stadium
 ## MATCH API
 
 - Create a new Match
+
+* Make sure to enter the date and time in the same format
+* Matches in the future date or time won't be assigned as they are not played yet.
 
 ```bash
 POST http://localhost:1337/match
@@ -185,11 +199,21 @@ DELETE http://localhost:1337/match/{match_id}
 ## Collector Api
 
 - create a new collector
+
+```bash
   POST http://localhost:1337/collector
+```
+
 - edit a collector
+
+```bash
   PATCH http://localhost:1337/collector/{collector_id}
+```
+
 - delete a collector
+  ```bash
   DELETE http://localhost:1337/collector/{collector_id}
+  ```
 
 ## We have created a match and a collector now we can assign a collector a match
 
@@ -230,4 +254,11 @@ PATCH http://localhost:1337/matchescollector/1
 {
     collector_id : 1
 }
+```
+
+- Collect a match
+
+```bash
+PATCH http://localhost:1337/match/{match_id}/collect
+
 ```

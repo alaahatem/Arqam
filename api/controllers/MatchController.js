@@ -38,7 +38,7 @@ module.exports = {
                 })
                 .exec(async (err, new_assignments) => {
                   if (err) {
-                    res.status(400).json({
+                    res.status(409).json({
                       message: err.message,
                     });
                   }
