@@ -18,7 +18,22 @@ Clone the code using the following command :
 git clone https://github.com/alaahatem/Arqam.git
 ```
 
-then direct into the project :
+- Using docker
+  Direct into the project
+
+```bash
+cd Arqam
+```
+
+Run docker compose server exposed at same default port 1337 to avoid confusion
+
+```bash
+docker-compose up
+```
+
+## OR using npm manually
+
+Direct into the project :
 
 ```bash
 cd Arqam
