@@ -101,4 +101,36 @@ module.exports = {
         });
     }
   },
+  // CREATING A NEW MATCH
+  addMatch: async (req, res) => {
+    //CREATING A new instance of the match
+    await sails.models.match
+      .create({
+        date: req.body.date,
+        home_team_id: req.body.home_team_id,
+        away_team_id: req.body.away_team_id,
+        stadium_id: req.body.stadium_id,
+        referee_id: req.body.referee_id,
+        competition_id: req.body.competition_id,
+        kickoff_time: req.body.kickoff_time,
+      })
+      .fetch()
+      .exec((err, newMatch) => {
+        if (err) {
+          res.status(400).json({
+            message: err.message,
+          });
+        }
+        // we can't have opponents of the same team logically
+        if (req.body.home_team_id == req.body.away_team_id) {
+          res.status(409).json({
+            message:
+              "You can not create a match where opponents are the same team",
+          });
+        }
+        res.status(200).json({
+          newMatch,
+        });
+      });
+  },
 };

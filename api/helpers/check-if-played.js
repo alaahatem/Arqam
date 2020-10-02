@@ -1,7 +1,7 @@
 module.exports = {
   friendlyName: "Check if played",
 
-  description: "",
+  description: "This function checks if a given match is played or not",
 
   inputs: {
     req: {

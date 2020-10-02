@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+  // Set the status of the match as collected
   collectMatch: async (req, res) => {
     await sails.models.match
       .updateOne()
@@ -26,6 +27,7 @@ module.exports = {
         });
       });
   },
+  //get Assignments of a specific collector
   getAssignmentsByCollector: async (req, res) => {
     if (req.params.id) {
       await sails.models.matchescollector
@@ -33,6 +35,7 @@ module.exports = {
         .where({
           collector_id: req.params.id,
         })
+        // and populate the match info with it
         .populate("match_id")
         .exec((err, assignments) => {
           if (err) {
@@ -41,6 +44,7 @@ module.exports = {
               message: err.message,
             });
           }
+          //if there's matches assigned to this collector we return them
           if (assignments.length > 0) {
             res.ok(assignments);
           } else {
