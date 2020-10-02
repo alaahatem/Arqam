@@ -1,6 +1,6 @@
 # match-api
 
-a [Sails v1](https://sailsjs.com) application
+a Node js with [Sails v1](https://sailsjs.com) application that manipulates match data.
 
 ### Links
 
