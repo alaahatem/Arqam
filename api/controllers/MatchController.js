@@ -25,7 +25,6 @@ module.exports = {
           .exec(async (err, assignments) => {
             if (err) {
               res.status(400).json({
-                error: err,
                 message: err.message,
               });
             }
@@ -40,7 +39,6 @@ module.exports = {
                 .exec(async (err, new_assignments) => {
                   if (err) {
                     res.status(400).json({
-                      error: err,
                       message: err.message,
                     });
                   }

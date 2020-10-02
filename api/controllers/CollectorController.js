@@ -26,4 +26,30 @@ module.exports = {
         });
       });
   },
+  getAssignmentsByCollector: async (req, res) => {
+    if (req.params.id) {
+      await sails.models.matchescollector
+        .find()
+        .where({
+          collector_id: req.params.id,
+        })
+        .populate("match_id")
+        .exec((err, assignments) => {
+          if (err) {
+            res.status(400).json({
+              error: err,
+              message: err.message,
+            });
+          }
+          if (assignments.length > 0) {
+            res.ok(assignments);
+          } else {
+            res.status(200).json({
+              assignments: assignments,
+              message: "This collecter is not assigned any matches",
+            });
+          }
+        });
+    }
+  },
 };

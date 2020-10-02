@@ -34,8 +34,9 @@ module.exports.routes = {
   //  MatchEndpoints
   "GET /match/:team": "MatchController.getMatchesByTeam",
   "POST /match/:id/assign": "MatchController.AssignMatches",
-  "PATCH /match/:id/collect": "CollectorController.collectMatch",
 
   // CollectorEndpoints
-  "GET /played/:id": "CollectorController.checkIfPlayed",
+  "PATCH /match/:id/collect": "CollectorController.collectMatch",
+  "GET /collector/:id/assignments":
+    "CollectorController.getAssignmentsByCollector",
 };

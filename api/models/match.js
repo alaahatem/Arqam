@@ -21,6 +21,7 @@ module.exports = {
     },
     competition_id: {
       model: "competition",
+      required: true,
     },
     stadium_id: {
       model: "stadium",
