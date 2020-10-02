@@ -46,6 +46,7 @@ module.exports.datastores = {
      *                                                                          *
      ***************************************************************************/
     adapter: "sails-postgresql",
+    // url: "postgres://alaakurdi:password@127.0.0.1:5432/arqamtest",
     url:
       "postgres://birvmlrozxhgcy:61528ddeceb1770d675f97d3edd9f94f32d84720b88eb351244d29c44bc6eda0@ec2-54-197-48-79.compute-1.amazonaws.com:5432/d3sh9ohten5kt7",
     ssl: true,
