@@ -36,9 +36,13 @@ Start the project :
 npm start
 ```
 
+The postgres database is deployed and connected to heroku to avoid the hassle of configuring it and the connection url should be in env but
+is embedded to start testing the api immediately
+
 ## API USAGE
 
 - Create a new Team (at least two to create a match)
+  All CRUD available
 
 ```bash
 POST http://localhost:1337/team
@@ -50,6 +54,7 @@ POST http://localhost:1337/team
 ```
 
 - Create a new Competition
+  All CRUD available
 
 ```bash
 POST http://localhost:1337/competition
@@ -63,6 +68,7 @@ POST http://localhost:1337/competition
 OPTIONALLY You can also do the following :
 
 - Create a new Player :
+  All CRUD available
 
 ```bash
 POST http://localhost:1337/player
@@ -77,6 +83,7 @@ POST http://localhost:1337/player
 ```
 
 - Create a new Referee :
+  All CRUD available
 
 ```bash
 POST http://localhost:1337/referee
@@ -88,6 +95,7 @@ POST http://localhost:1337/referee
 ```
 
 Create a new Stadium :
+All CRUD available
 
 ```bash
 POST http://localhost:1337/stadium
@@ -180,7 +188,7 @@ POST http://localhost:1337/match/1/assign
 
 Note :
 Assigning a collector with more than 2 matches won't be accepted
-Assigning a collector a match that is yet to be played won't be accepted
+and assigning a collector a match that is yet to be played won't be accepted
 
 - GET history of assignments of a specific collector with id 2
 
